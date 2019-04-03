@@ -1,3 +1,3 @@
-#Lab 6 - Detect Language
+#Lab 8 - Detect Language
 
 

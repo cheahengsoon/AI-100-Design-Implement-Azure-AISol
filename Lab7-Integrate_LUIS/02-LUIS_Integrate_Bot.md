@@ -1,4 +1,4 @@
-# Lab 5: Integrate LUIS into Bot Dialogs
+# Lab 7: Integrate LUIS into Bot Dialogs
 
 > Prerequisites: This lab builds on [Lab 2](../Lab2-Basic_Filter_Bot/02-Basic_Filter_Bot.md).
 It is recommended that you do that lab in order to be able to implement logging as covered in this lab. If you have not, reading carefully through all the exercises and looking at some of the code or using it in your own applications may be sufficient, depending on your needs.
@@ -7,7 +7,7 @@ Our bot is now capable of taking in a user's input and responding based on the u
 
 We will have to update our bot in order to use LUIS.  We can do this by modifying "Startup.cs" and "PictureBot.cs."
 
-## Lab 5.1: Adding natural language understanding
+## Lab 7.1: Adding natural language understanding
 
 ### Adding LUIS to Startup.cs
 
@@ -50,7 +50,7 @@ You can find your base URL by logging into www.luis.ai, going to the **Publish**
 
 **Hint**: The LUIS App ID will have hyphens in it, and the LUIS subscription key will not.
 
-## Lab 5.2: Adding LUIS to PictureBot's MainDialog
+## Lab 7.2: Adding LUIS to PictureBot's MainDialog
 
 Open "PictureBot.cs." The first thing you'll need to do is initialize the LUIS recognizer, similar to how you did for `PictureBotAccessors`. Below the commented line `// Initialize LUIS Recognizer`, add the following:
 ```csharp
@@ -129,7 +129,7 @@ Let's briefly go through what we're doing in the new code additions. First, inst
 
 Another thing to note is that after every response that called LUIS, we're adding the LUIS intent value and score. The reason is just to show you when LUIS is being called as opposed to Regex (you would remove these responses from the final product, but it's a good indicator for us as we test the bot).
 
-## Lab 5.3: Testing natural speech phrases
+## Lab 7.3: Testing natural speech phrases
 Hit F5 to run the app. In the Bot Emulator, try sending the bots different ways of searching pictures. What happens when you say "send me pictures of water" or "show me dog pics"? Try some other ways of asking for, sharing and ordering pictures.
 
 If you have extra time, see if there are things LUIS isn't picking up on that you expected it to. Maybe now is a good time to go to luis.ai, [review your endpoint utterances](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/label-suggested-utterances), and retrain/republish your model.

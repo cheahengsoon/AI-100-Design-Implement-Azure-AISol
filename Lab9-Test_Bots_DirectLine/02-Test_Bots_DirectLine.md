@@ -227,7 +227,7 @@ Spend some time reviewing this sample code. It's a good exercise to make sure yo
 
 Right-click on the PictureBotDL project and select "Set as Startup Project". Next, run the app and have a conversation with the bot.
 
-![Console App](../../Linked_Image_Files/consoleapp.png)
+![Console App](../images//consoleapp.png)
 
 Quick quiz - how are we displaying the Conversation ID? We'll see in the next sections why we might want this.
 
@@ -252,11 +252,11 @@ Postman makes this very easy for us to configure:
 - Enter your request URL with your Conversation ID.
 - Change the Authorization to type "Bearer Token" and enter your Direct Line Secret key in the "Token" box.
 
-![Bearer Token](../../Linked_Image_Files/bearer.png)
+![Bearer Token](../images//bearer.png)
 
 Finally, select send. Inspect your results. Create a new conversation with your console app and be sure to search for pictures. Create a new request using Postman. You will find the image url displayed within the images array.
 
-![Images Array Example](../../Linked_Image_Files/imagesarray.png)
+![Images Array Example](../images//imagesarray.png)
 
 ### Going further
 

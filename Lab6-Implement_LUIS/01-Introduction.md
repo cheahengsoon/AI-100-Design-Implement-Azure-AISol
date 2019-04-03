@@ -1,4 +1,4 @@
-# Lab 4: Introduction
+# Lab 6: Introduction
 
 ## Implement the LUIS model
 

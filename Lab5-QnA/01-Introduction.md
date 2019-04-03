@@ -1,4 +1,4 @@
-# Lab 3: Introduction
+# Lab 5: Introduction
 
 ## QnA Maker Setup
 

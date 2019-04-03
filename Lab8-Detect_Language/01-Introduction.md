@@ -1,4 +1,4 @@
-# Lab 6: Introduction
+# Lab 8: Introduction
 
 ## Detect User Language
 

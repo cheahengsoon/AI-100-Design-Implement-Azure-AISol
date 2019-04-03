@@ -18,7 +18,7 @@ If you have been given an Azure Pass to complete this lab, you may go to [http:/
 
 ### Environment Setup
 
-These labs are intended to be used with the .NET Framework using [Visual Studio 2017, Community Edition](https://www.visualstudio.com/downloads/).
+These labs are intended to be used with the .NET Framework using [Visual Studio 2017, Community Edition](https://www.visualstudio.com/downloads/).  The original workshop was designed to be used, and was tested with, the Azure Data Science Virtual Machine (DSVM).  Only premium Azure subscriptions can actually create a DSVM resource on Azure but the labs can be completed with a local computer running Visual Studio 2017 Community Edition and the required software downloads listed throughout the lab steps.
 
 ### Key Setup
 

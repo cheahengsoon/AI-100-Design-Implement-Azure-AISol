@@ -1,13 +1,13 @@
-# Lab 4: Implementing the LUIS model
+# Lab 6: Implementing the LUIS model
 
 This hands-on lab guides you through creating a model to enhance the Natural Language Processing capabilities of your applications, using Microsoft's Language Understanding Intelligent Service (LUIS).
 
-## Lab 4.0: Objectives
+## Lab 6.0: Objectives
 In this lab, you will build, train and publish a LUIS model to help your bot (which will be created in a future lab) communicate effectively with human users.
 
 > Note: In this lab, we will only be creating the LUIS model that you will use in a future lab to build a more intelligent bot.
 
-## Lab 4.1: What is LUIS
+## Lab 6.1: What is LUIS
 
 The LUIS functionality and functionality has already been covered in the workshop; for a refresher on LUIS, [read more](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/Home).
 
@@ -27,7 +27,7 @@ As a review, these are the steps you will generally take when creating LUIS appl
   6. [Review endpoint utterances](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/label-suggested-utterances)
   7. [Publish](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/publishapp)
 
-## Lab 4.2: Creating the LUIS service in the portal (optional)
+## Lab 6.2: Creating the LUIS service in the portal (optional)
 
 > Note: Creating a LUIS service in the portal is optional, as LUIS provides you with a "starter key" that you can use for the labs. However, if you want to see how to create a free or paid service in the portal, you can follow the steps below.
 
@@ -37,9 +37,9 @@ This will lead you to fill out a few details for the API endpoint you'll be crea
 
 Once you have created your new API subscription, you can grab the key from the appropriate section of the blade and add it to your list of keys.
 
-![Cognitive API Key](../../Linked_Image_Files/CreateBot2.png))
+![Cognitive API Key](../images//CreateBot2.png))
 
-## Lab 4.3: Adding intelligence to your applications with LUIS
+## Lab 6.3: Adding intelligence to your applications with LUIS
 
 Let's look at how we can use LUIS to add some natural language capabilities. LUIS allows you to map natural language utterances (words/phrases/sentences the user might say when talking to the bot) to intents (tasks or actions the user wants to perform). For our application, we might have several intents: finding pictures, sharing pictures, and ordering prints of pictures, for example. We can give a few example utterances as ways to ask for each of these things, and LUIS will map additional new utterances to each intent based on what it has learned.
 
@@ -53,11 +53,11 @@ Navigate to [https://www.luis.ai](https://www.luis.ai) (**unless you are located
 
 From the main page, click the "Create LUIS app" button, select your country on the next page, accept the license agreement, and click "Create new app" button on the next page.  Give it a name (I chose "PictureBotLuisModel") and set the Culture to "English".  You can optionally provide a description. Then click "Done".
 
-![LUIS New App](../../Linked_Image_Files/LuisNewApp.png)
+![LUIS New App](../images//LuisNewApp.png)
 
 You will be taken to the Build section for your new app.
 
-![LUIS Dashboard](../../Linked_Image_Files/LuisCreateIntent.png)
+![LUIS Dashboard](../images//LuisCreateIntent.png)
 
 > Note that there is one intent called "None".  Random utterances that don't map to any of your intents may be mapped to "None".
 
@@ -72,13 +72,13 @@ Let's create intents for the user requesting each of these.  Click the "Create n
 
 Name the first intent "Greeting" and click "Done".  Then give several examples of things the user might say when greeting the bot, pressing "Enter" after each one.
 
-![LUIS Greeting Intent](../../Linked_Image_Files/LuisGreetingIntent.png)
+![LUIS Greeting Intent](../images//LuisGreetingIntent.png)
 
 Let's see how to create an entity.  When the user requests to search the pictures, they may specify what they are looking for.  Let's capture that in an entity.
 
 Click on "Entities" in the left-hand column and then click "Create new entity".  Give it an entity name "facet" and entity type ["Simple"](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-concept-entity-types).  Then click "Done".
 
-![Add Facet Entity](../../Linked_Image_Files/LuisCreateEntity.png)
+![Add Facet Entity](../images//LuisCreateEntity.png)
 
 Next, click "Intents" in the left-hand sidebar and then click the "Create new intent" button.  Give it an intent name of "SearchPics" and then click "Done".
 
@@ -98,11 +98,11 @@ Just as we did for Greetings, let's add some sample utterances (words/phrases/se
 
 Once we have some utterances, we have to teach LUIS how to pick out the **search topic** as the "facet" entity. Whatever the "facet" entity picks up is what will be searched. Hover and click the word (or click consecutive words to select a group of words) and then select the "facet" entity.
 
-![Labelling Entity](../../Linked_Image_Files/LuisFacet.png)
+![Labelling Entity](../images//LuisFacet.png)
 
 So your utterances may become something like this when facets are labeled:
 
-![Add Facet Entity](../../Linked_Image_Files/SearchPicsIntentAfter.png)
+![Add Facet Entity](../images//SearchPicsIntentAfter.png)
 
 >Note: This workshop does not include Azure search, however, this functionality has been left in for the sake of demonstration.
 
@@ -115,7 +115,7 @@ When choosing utterances, it can be helpful to use a combination of questions, c
 
 Finally, you need to add some sample utterances to the "None" intent. This helps LUIS label when things are outside the scope of your application. Add things like "I'm hungry for pizza", "Search videos", etc. You should have about 10-15% of your app's utterances within the None intent.
 
-## Lab 4.4: Training the LUIS model
+## Lab 6.4: Training the LUIS model
 
 We are now ready to train our model.
 
@@ -126,7 +126,7 @@ Next, click on "Manage" in the top bar. You'll have several options on the left 
 If you completed the optional step of creating a LUIS service in the portal, select or add (by clicking the "Add Key" button towards the bottom of the page on the "Keys and Endpoints" tab) the endpoint key that you set up earlier, or follow the link to add a key from your Azure account
 (for testing and learning purposes, you can also just use the "Starter_Key", which is why creating the LUIS service was optional). You can leave the endpoint slot as "Production".  Then click "Publish" in the top bar. You'll have the option to publish to your "Production" or "Staging" endpoint. Select "Production", and [read about the reasons for the two endpoints](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-version). Finally, click "Publish".
 
-![Publish LUIS App](../../Linked_Image_Files/LuisPublish.png)
+![Publish LUIS App](../images//LuisPublish.png)
 
 Publishing creates an endpoint to call the LUIS model.  The URL will be displayed, which will be explained in a later lab. For now, you can copy the Endpoint URL and add it to your list of keys.
 
@@ -134,11 +134,11 @@ Click on "Test" in the top right bar. Try typing a few utterances and see the in
 
 One quick example is shown below. I have noticed that my model incorrectly assigned "send me a swimming photo" as SharePic, when it should be SearchPics. I reassigned the intent.
 
-![Test LUIS](../../Linked_Image_Files/ReassignIntent.png)
+![Test LUIS](../images//ReassignIntent.png)
 
 Now I need to retrain my app by selecting the Train button. I then tested the same utterance and compared the results between my recently trained and previously published model. Remember, you'll have to republish your model to see updates in the application that uses the model.
 
-![Reassign Intent](../../Linked_Image_Files/ReassignIntentAfter.png)
+![Reassign Intent](../images//ReassignIntentAfter.png)
 
 You can also [test your published endpoint in a browser](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/PublishApp#test-your-published-endpoint-in-a-browser). Copy the Endpoint URL. To open this URL in your browser, set the URL parameter `&q=` to your test query. For example, append `Find pictures of dogs` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint.
 
